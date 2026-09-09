@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Hamza Solar | Solar Solutions in Rajasthan</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f7f9fc;
+    color:#17202a;
+}
+
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid #eee;
+}
+
+.nav{
+    max-width:1150px;
+    margin:auto;
+    padding:16px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:800;
+}
+
+.logo span{
+    color:#f5a900;
+}
+
+nav a{
+    text-decoration:none;
+    color:#222;
+    margin-left:22px;
+    font-weight:600;
+}
+
+.btn{
+    display:inline-block;
+    background:#f5a900;
+    color:#111;
+    padding:14px 22px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:700;
+    border:none;
+    cursor:pointer;
+}
+
+.hero{
+    min-height:100vh;
+    padding:150px 20px 80px;
+    background:
+    radial-gradient(circle at 80% 20%,#ffe28a,transparent 28%),
+    linear-gradient(135deg,#fff,#eef7ff);
+}
+
+.hero-inner{
+    max-width:1150px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:50px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-block;
+    background:#fff3c9;
+    color:#9a6500;
+    padding:9px 15px;
+    border-radius:30px;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:58px;
+    line-height:1.05;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#e99b00;
+}
+
+.hero p{
+    font-size:19px;
+    line-height:1.7;
+    color:#5c6670;
+    margin-bottom:28px;
+}
+
+.hero-card{
+    background:#101820;
+    color:white;
+    padding:35px;
+    border-radius:30px;
+    box-shadow:0 25px 60px rgba(0,0,0,.18);
+}
+
+.hero-card .sun{
+    font-size:65px;
+    margin-bottom:15px;
+}
+
+section{
+    padding:85px 20px;
+}
+
+.container{
+    max-width:1150px;
+    margin:auto;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.title h2{
+    font-size:38px;
+    margin-bottom:10px;
+}
+
+.title p{
+    color:#6b7280;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:22px;
+    box-shadow:0 10px 35px rgba(0,0,0,.06);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+}
+
+.icon{
+    font-size:38px;
+    margin-bottom:15px;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#68727d;
+    line-height:1.6;
+}
+
+/* Calculator */
+
+.calculator{
+    background:#101820;
+    color:white;
+}
+
+.calc-box{
+    max-width:650px;
+    margin:auto;
+    background:#18232d;
+    padding:35px;
+    border-radius:28px;
+}
+
+.input{
+    width:100%;
+    padding:16px;
+    margin:10px 0 20px;
+    border:none;
+    border-radius:12px;
+    font-size:17px;
+}
+
+.calc-btn{
+    width:100%;
+    padding:16px;
+    border:0;
+    border-radius:12px;
+    background:#f5a900;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.result{
+    margin-top:25px;
+    padding:22px;
+    background:#fff;
+    color:#17202a;
+    border-radius:18px;
+    display:none;
+}
+
+.result strong{
+    color:#e99b00;
+}
+
+/* Rajasthan */
+
+.rajasthan{
+    background:linear-gradient(135deg,#fff7d6,#fff);
+}
+
+.rajasthan-box{
+    text-align:center;
+    padding:55px 25px;
+    border-radius:30px;
+    background:white;
+    box-shadow:0 15px 45px rgba(0,0,0,.07);
+}
+
+.rajasthan-box h2{
+    font-size:42px;
+    margin:12px 0;
+}
+
+.rajasthan-box span{
+    color:#e99b00;
+}
+
+/* Consultation */
+
+.form-box{
+    max-width:650px;
+    margin:auto;
+    background:white;
+    padding:35px;
+    border-radius:25px;
+    box-shadow:0 15px 45px rgba(0,0,0,.07);
+}
+
+.form-box input,
+.form-box select,
+.form-box textarea{
+    width:100%;
+    padding:15px;
+    margin:8px 0 15px;
+    border:1px solid #ddd;
+    border-radius:12px;
+    font-size:16px;
+}
+
+.form-box textarea{
+    min-height:100px;
+    resize:none;
+}
+
+.submit{
+    width:100%;
+    background:#f5a900;
+    border:0;
+    padding:16px;
+    border-radius:12px;
+    font-weight:bold;
+    font-size:17px;
+    cursor:pointer;
+}
+
+/* Contact */
+
+.contact{
+    background:#101820;
+    color:white;
+    text-align:center;
+}
+
+.contact h2{
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+.contact p{
+    color:#cbd5df;
+    margin-bottom:25px;
+}
+
+.phone{
+    margin:12px;
+    font-size:18px;
+}
+
+footer{
+    background:#080d12;
+    color:#aaa;
+    text-align:center;
+    padding:25px;
+}
+
+/* Floating buttons */
+
+.float{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    z-index:999;
+}
+
+.float a{
+    width:55px;
+    height:55px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:50%;
+    text-decoration:none;
+    font-size:25px;
+    background:#f5a900;
+    box-shadow:0 8px 25px rgba(0,0,0,.2);
+}
+
+/* Mobile */
+
+@media(max-width:800px){
+
+    nav{
+        display:none;
+    }
+
+    .hero-inner{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        padding-top:120px;
+    }
+
+    .title h2{
+        font-size:32px;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="nav">
+
+<div class="logo">
+☀️ HAMZA <span>SOLAR</span>
+</div>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#services">Services</a>
+<a href="#calculator">Calculator</a>
+<a href="#consultation">Consultation</a>
+<a href="#contact">Contact</a>
+</nav>
+
+</div>
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div class="hero-inner">
+
+<div>
+
+<div class="badge">📍 Serving Across Rajasthan</div>
+
+<h1>
+Power Your Future With
+<span>Solar Energy</span>
+</h1>
+
+<p>
+बिजली के बढ़ते बिल से छुटकारा पाएं और अपने घर को
+सोलर से जोड़ें। Hamza Solar के साथ पाएं
+professional solar installation और reliable service.
+</p>
+
+<a class="btn" href="#calculator">
+Calculate Your Solar ☀️
+</a>
+
+</div>
+
+
+<div class="hero-card">
+
+<div class="sun">☀️</div>
+
+<h2>Go Solar. Save More.</h2>
+
+<p style="margin-top:12px;color:#cbd5df;">
+आपकी जरूरत के हिसाब से सही Solar System चुनने में
+हम आपकी मदद करेंगे।
+</p>
+
+<br>
+
+<a class="btn" href="#consultation">
+Free Consultation
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section id="services">
+
+<div class="container">
+
+<div class="title">
+<h2>Why Choose Hamza Solar?</h2>
+<p>Smart solar solutions for homes & businesses</p>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<div class="icon">☀️</div>
+<h3>Quality Solar System</h3>
+<p>
+आपकी जरूरत के अनुसार बेहतर quality के solar solutions.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🛠️</div>
+<h3>Professional Installation</h3>
+<p>
+Proper planning और professional installation के साथ.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">💰</div>
+<h3>Save Electricity Bill</h3>
+<p>
+Solar energy के जरिए लंबे समय तक electricity खर्च कम करने में मदद.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CALCULATOR -->
+
+<section class="calculator" id="calculator">
+
+<div class="container">
+
+<div class="title">
+<h2>☀️ Solar Requirement Calculator</h2>
+<p style="color:#aeb8c2;">
+अपना monthly electricity consumption डालें
+</p>
+</div>
+
+
+<div class="calc-box">
+
+<label>Monthly Electricity Units</label>
+
+<input
+type="number"
+id="units"
+class="input"
+placeholder="Example: 300"
+/>
+
+<button class="calc-btn" onclick="calculateSolar()">
+Check My Solar Requirement
+</button>
+
+
+<div class="result" id="result">
+
+<h3>आपके लिए अनुमानित Solar System</h3>
+
+<br>
+
+<p>Recommended Capacity:</p>
+
+<h2>
+<strong id="kw">0 kW</strong>
+</h2>
+
+<br>
+
+<p>Estimated Monthly Generation:</p>
+
+<p>
+<strong id="generation">0 Units</strong>
+</p>
+
+<br>
+
+<p>
+💡 यह एक अनुमानित calculation है। Final system size
+roof space, sanctioned load और site requirements पर
+depend करेगा।
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- RAJASTHAN -->
+
+<section class="rajasthan">
+
+<div class="container">
+
+<div class="rajasthan-box">
+
+<div style="font-size:55px;">📍☀️</div>
+
+<h2>
+HAMZA SOLAR
+</h2>
+
+<h2>
+Serving <span>RAJASTHAN</span>
+</h2>
+
+<p>
+अपने शहर में Solar Installation और Solar Consultation
+के लिए हमसे संपर्क करें।
+</p>
+
+<br>
+
+<a class="btn" href="#consultation">
+Get Free Consultation
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONSULTATION -->
+
+<section id="consultation">
+
+<div class="container">
+
+<div class="title">
+
+<h2>🆓 Free Solar Consultation</h2>
+
+<p>
+अपनी details भरें और हमारी team से consultation लें।
+</p>
+
+</div>
+
+
+<div class="form-box">
+
+<input id="name" placeholder="Your Name">
+
+<input id="phone" placeholder="Mobile Number">
+
+<input id="city" placeholder="City / District">
+
+<input id="bill" type="number"
+placeholder="Monthly Electricity Units">
+
+<textarea id="message"
+placeholder="Any requirement or question?"></textarea>
+
+<button class="submit" onclick="sendWhatsApp()">
+Get Free Consultation
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+<div class="container">
+
+<h2>Let's Go Solar ☀️</h2>
+
+<p>
+आज ही Hamza Solar से संपर्क करें।
+</p>
+
+<div class="phone">
+📞 <strong>Wasim Qureshi:</strong> 8947874947
+</div>
+
+<div class="phone">
+📞 <strong>Tosif Qureshi:</strong> 9351723340
+</div>
+
+<br>
+
+<a class="btn"
+href="https://wa.me/918947874947"
+target="_blank">
+WhatsApp Us
+</a>
+
+</div>
+
+</section>
+
+
+<footer>
+
+© 2026 Hamza Solar | Solar Solutions in Rajasthan
+
+</footer>
+
+
+<!-- FLOATING BUTTONS -->
+
+<div class="float">
+
+<a href="tel:8947874947">📞</a>
+
+<a href="https://wa.me/918947874947"
+target="_blank">
+💬
+</a>
+
+</div>
+
+
+<script>
+
+function calculateSolar(){
+
+let units =
+parseFloat(document.getElementById("units").value);
+
+if(!units || units <= 0){
+
+alert("Please enter your monthly electricity units.");
+
+return;
+
+}
+
+/*
+Approximate calculation:
+1 kW solar ≈ 100-120 units/month.
+We use 110 units as an estimate.
+*/
+
+let kw = Math.ceil(units / 110);
+
+if(kw < 1){
+kw = 1;
+}
+
+let generation = kw * 110;
+
+document.getElementById("kw").innerText =
+kw + " kW";
+
+document.getElementById("generation").innerText =
+"~ " + generation + " Units/month";
+
+document.getElementById("result").style.display =
+"block";
+
+}
+
+
+function sendWhatsApp(){
+
+let name =
+document.getElementById("name").value;
+
+let phone =
+document.getElementById("phone").value;
+
+let city =
+document.getElementById("city").value;
+
+let bill =
+document.getElementById("bill").value;
+
+let message =
+document.getElementById("message").value;
+
+if(!name || !phone){
+
+alert("Please enter your name and mobile number.");
+
+return;
+
+}
+
+let text =
+`☀️ Hamza Solar - Free Consultation
+
+Name: ${name}
+Mobile: ${phone}
+City: ${city}
+Monthly Units: ${bill}
+
+Requirement:
+${message}`;
+
+let url =
+"https://wa.me/918947874947?text=" +
+encodeURIComponent(text);
+
+window.open(url,"_blank");
+
+}
+
+</script>
+
+</body>
+</html>
